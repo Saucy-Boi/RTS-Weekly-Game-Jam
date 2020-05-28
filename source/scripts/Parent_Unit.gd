@@ -20,6 +20,7 @@ func _ready():
 	# move hp bar to top of unit
 	$HP_Bar.rect_position.x = -$HP_Bar.rect_size.x / 2
 	$HP_Bar.rect_position.y = -$HP_Bar.rect_size.x * 0.75
+	$HP_Bar.value = hp
 	
 func _physics_process(delta):
 	velocity = Vector2.ZERO
@@ -58,7 +59,16 @@ func avoid():
 		result += n.position.direction_to(position)
 	result /= neighbors.size()
 	return result.normalized()
-	
+
+
+func change_hp(value):
+	hp += value
+	hp = clamp(hp, 0, max_hp)
+	$HP_Bar.value = hp
+	if hp == 0:
+		queue_free()
+
+
 func _draw():
 	# Draws some debug vectors.
 	if !globals.debugging:

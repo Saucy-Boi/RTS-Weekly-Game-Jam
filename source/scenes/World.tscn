@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://source/tilesets/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://source/scenes/Battle_Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/UI/red_panel.png" type="Texture" id=3]
 [ext_resource path="res://source/scripts/World.gd" type="Script" id=4]
 [ext_resource path="res://source/scenes/Parent_Unit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://source/scenes/Parent_Turret.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
@@ -52,3 +53,6 @@ __meta__ = {
 }
 
 [node name="Battle_Camera" parent="." instance=ExtResource( 2 )]
+
+[node name="Parent_Turret" parent="." instance=ExtResource( 6 )]
+position = Vector2( 315.034, 408.112 )
